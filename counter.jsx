@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import Foo from './foo.jsx';
 
 class Counter extends Component {
   constructor(props) {
@@ -16,6 +16,13 @@ class Counter extends Component {
     });
   }
 
+  makeFoo(){
+    let returnArr = [];
+    for(let i = 0; i< this.state.count; i++) {
+      returnArr.push(<Foo key={i}/>);
+    }
+    return returnArr;
+  }
 
   render() {
     return (
@@ -23,6 +30,7 @@ class Counter extends Component {
       <div>
         <p>count: {this.state.count}</p>
         <button onClick={this.add1}></button>
+        {this.makeFoo()}
       </div>
     );
   }
